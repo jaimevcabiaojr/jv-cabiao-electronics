@@ -22,16 +22,37 @@ if (navToggle && nav) {
 
 const repairForm = document.getElementById('repairForm');
 if (repairForm) {
-  repairForm.addEventListener('submit', (event) => {
+  repairForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
     const name = repairForm.querySelector('input[name="name"]')?.value?.trim();
     const cellphone = repairForm.querySelector('input[name="cellphone"]')?.value?.trim();
     const device = repairForm.querySelector('input[name="device"]')?.value?.trim();
 
-    if (name && cellphone && device) {
-      repairForm.querySelector('input[name="_subject"]').value = 'Repair Request from ' + name;
-      repairForm.querySelector('input[name="_template"]').value = 'table';
-      repairForm.querySelector('input[name="_captcha"]').value = 'false';
-      repairForm.querySelector('input[name="_replyto"]').value = 'noreply@example.com';
+    if (!name || !cellphone || !device) return;
+
+    const payload = {
+      name,
+      cellphone,
+      device,
+      _subject: 'Repair Request from ' + name,
+      _captcha: 'false',
+      _template: 'table'
+    };
+
+    try {
+      await fetch('https://formsubmit.co/ajax/jcabiao18@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+    } catch (error) {
+      console.error('Repair request failed:', error);
+    } finally {
+      window.location.href = '/';
     }
   });
 }
