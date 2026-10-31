@@ -23,32 +23,6 @@ if (navToggle && nav) {
 const repairForm = document.getElementById('repairForm');
 const successDialog = document.getElementById('successDialog');
 const closeDialogButton = document.getElementById('closeDialog');
-const saveContactButton = document.getElementById('saveContactBtn');
-
-function saveContactToDevice() {
-  const vCard = [
-    'BEGIN:VCARD',
-    'VERSION:3.0',
-    'FN:JVCabiaoRepairShop',
-    'ORG:JVCabiaoRepairShop',
-    'TEL;TYPE=CELL:+639778227108',
-    'END:VCARD'
-  ].join('\n');
-
-  const blob = new Blob([vCard], { type: 'text/vcard;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = 'jvcabiaorepairshop.vcf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
-}
-
-if (saveContactButton) {
-  saveContactButton.addEventListener('click', saveContactToDevice);
-}
 
 if (successDialog && closeDialogButton) {
   closeDialogButton.addEventListener('click', () => {
