@@ -23,18 +23,14 @@ if (navToggle && nav) {
 const repairForm = document.getElementById('repairForm');
 if (repairForm) {
   repairForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+    const name = repairForm.querySelector('input[name="name"]')?.value?.trim();
+    const cellphone = repairForm.querySelector('input[name="cellphone"]')?.value?.trim();
+    const device = repairForm.querySelector('input[name="device"]')?.value?.trim();
 
-    const formData = new FormData(repairForm);
-    const name = (formData.get('name') || '').toString().trim();
-    const cellphone = (formData.get('cellphone') || '').toString().trim();
-    const device = (formData.get('device') || '').toString().trim();
-
-    const subject = encodeURIComponent('Repair Request');
-    const body = encodeURIComponent(
-      `Name: ${name}\nCellphone: ${cellphone}\nDevice to be repaired: ${device}`
-    );
-
-    window.location.href = `mailto:jcabiao18@gmail.com?subject=${subject}&body=${body}`;
+    if (name && cellphone && device) {
+      repairForm.querySelector('input[name="_subject"]').value = 'Repair Request from ' + name;
+      repairForm.querySelector('input[name="_template"]').value = 'table';
+      repairForm.querySelector('input[name="_captcha"]').value = 'false';
+    }
   });
 }
