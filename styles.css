@@ -601,6 +601,43 @@ h3 {
   width: 100%;
 }
 
+.success-dialog {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 8, 18, 0.75);
+  z-index: 50;
+  padding: 1rem;
+}
+
+.success-dialog.visible {
+  display: flex;
+}
+
+.dialog-box {
+  width: min(100%, 480px);
+  background: linear-gradient(180deg, rgba(18, 31, 54, 0.98), rgba(9, 17, 29, 0.98));
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1.5rem;
+  box-shadow: 0 24px 70px rgba(6, 12, 22, 0.6);
+}
+
+.dialog-box h3 {
+  margin-bottom: 0.7rem;
+}
+
+.dialog-box p {
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+}
+
+.dialog-box a {
+  color: var(--accent);
+}
+
 .footnote {
   margin-top: 1.8rem;
   padding-top: 1.2rem;

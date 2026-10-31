@@ -21,6 +21,16 @@ if (navToggle && nav) {
 }
 
 const repairForm = document.getElementById('repairForm');
+const successDialog = document.getElementById('successDialog');
+const closeDialogButton = document.getElementById('closeDialog');
+
+if (successDialog && closeDialogButton) {
+  closeDialogButton.addEventListener('click', () => {
+    successDialog.classList.remove('visible');
+    window.location.href = '/';
+  });
+}
+
 if (repairForm) {
   repairForm.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -49,10 +59,12 @@ if (repairForm) {
         },
         body: JSON.stringify(payload)
       });
+      if (successDialog) {
+        successDialog.classList.add('visible');
+      }
     } catch (error) {
       console.error('Repair request failed:', error);
-    } finally {
-      window.location.href = '/';
+      alert('There was a problem sending your request. Please try again later.');
     }
   });
 }
