@@ -31,6 +31,7 @@ if (repairForm) {
       repairForm.querySelector('input[name="_subject"]').value = 'Repair Request from ' + name;
       repairForm.querySelector('input[name="_template"]').value = 'table';
       repairForm.querySelector('input[name="_captcha"]').value = 'false';
+      repairForm.querySelector('input[name="_replyto"]').value = 'noreply@example.com';
     }
   });
 }
