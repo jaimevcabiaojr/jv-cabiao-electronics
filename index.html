@@ -50,7 +50,7 @@
           <a href="#contact">Contact</a>
         </nav>
 
-        <a class="button button-small button-secondary" href="sms:+639171234567?body=Hi%20JVCabiaoRepairShop%2C%20I%20would%20like%20to%20request%20a%20repair%20service." aria-label="Request repair via text message">Request repair</a>
+        <a class="button button-small button-secondary" href="#contact" aria-label="Request repair via email">Request repair</a>
       </div>
     </header>
 
@@ -64,7 +64,7 @@
               We fix TVs, laptops, and gadgets with clear pricing, honest advice, and dependable service.
             </p>
             <div class="cta-row">
-              <a class="button" href="sms:+639171234567?body=Hi%20JVCabiaoRepairShop%2C%20I%20would%20like%20to%20request%20a%20repair%20service." aria-label="Send a text message to request a repair">Request repair</a>
+              <a class="button" href="#contact" aria-label="Request repair via email">Request repair</a>
               <a class="button button-ghost" href="#features">View services</a>
             </div>
             <ul class="mini-stats" aria-label="Repair stats">
@@ -289,9 +289,23 @@
           <a href="#contact">Contact</a>
         </div>
 
-        <div class="cta-box">
+        <div class="cta-box" id="contact">
           <p>Need a quick repair quote?</p>
-          <a class="button" href="sms:+639171234567?body=Hi%20JVCabiaoRepairShop%2C%20I%20want%20to%20request%20a%20repair.%20Please%20contact%20me." aria-label="Send a text message for repair request">Text us</a>
+          <form class="repair-form" id="repairForm">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" placeholder="Your full name" required />
+            </label>
+            <label>
+              <span>Cellphone</span>
+              <input type="tel" name="cellphone" placeholder="09xx-xxx-xxxx" required />
+            </label>
+            <label>
+              <span>Device to repair</span>
+              <input type="text" name="device" placeholder="TV, laptop, phone, etc." required />
+            </label>
+            <button type="submit" class="button button-small">Send email</button>
+          </form>
         </div>
       </div>
 

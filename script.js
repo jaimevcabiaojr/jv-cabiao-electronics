@@ -19,3 +19,22 @@ if (navToggle && nav) {
     });
   });
 }
+
+const repairForm = document.getElementById('repairForm');
+if (repairForm) {
+  repairForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(repairForm);
+    const name = (formData.get('name') || '').toString().trim();
+    const cellphone = (formData.get('cellphone') || '').toString().trim();
+    const device = (formData.get('device') || '').toString().trim();
+
+    const subject = encodeURIComponent('Repair Request');
+    const body = encodeURIComponent(
+      `Name: ${name}\nCellphone: ${cellphone}\nDevice to be repaired: ${device}`
+    );
+
+    window.location.href = `mailto:jcabiao18@gmail.com?subject=${subject}&body=${body}`;
+  });
+}
