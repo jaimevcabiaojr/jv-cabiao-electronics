@@ -298,6 +298,29 @@ h3 {
   box-shadow: 0 12px 26px rgba(124, 140, 255, 0.35);
 }
 
+.simple-status {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+}
+
+.status-row strong {
+  font-size: 1rem;
+  color: var(--accent);
+}
+
 .metrics-row {
   display: flex;
   align-items: center;
