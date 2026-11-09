@@ -405,6 +405,12 @@ h3 {
   gap: 1.4rem;
 }
 
+.testimonials-grid {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
 .feature-card,
 .testimonial-card,
 .price-card {
